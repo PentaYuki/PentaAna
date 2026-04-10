@@ -1,0 +1,41 @@
+[
+  {
+    "event": "Steam Spring Sale",
+    "date": "2024-03-14",
+    "end_date": "2024-03-21",
+    "type": "Sale",
+    "impact": "High CCU drop for non-participating games, high revenue spike for participating games"
+  },
+  {
+    "event": "Steam Summer Sale",
+    "date": "2024-06-27",
+    "end_date": "2024-07-11",
+    "type": "Sale",
+    "impact": "Market-wide CCU shifts"
+  },
+  {
+    "event": "Elden Ring: Shadow of the Erdtree Launch",
+    "date": "2024-06-21",
+    "type": "Game Launch",
+    "impact": "Major CCU drain from ARPG and Open World games"
+  },
+  {
+    "event": "Steam Deck Anniversary Sale",
+    "date": "2024-03-01",
+    "type": "Sale",
+    "impact": "Boost in handheld-optimized indie games"
+  },
+  {
+    "event": "Indie Live Expo",
+    "date": "2024-05-25",
+    "type": "Showcase",
+    "impact": "Spike in Wishlist Velocity for featured indies"
+  },
+  {
+    "event": "Steam Next Fest (February Edition)",
+    "date": "2024-02-05",
+    "end_date": "2024-02-12",
+    "type": "Festival",
+    "impact": "Massive wishlist accumulation for upcoming titles"
+  }
+]
