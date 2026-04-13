@@ -1,7 +1,64 @@
-node_modules/
+# Virtual environment
 .venv/
-dist/
+venv/
+ENV/
+
+# Python
 __pycache__/
-*.pyc
-*.log
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Data (keep structure)
+data/raw/parquet/*.parquet
+data/raw/csv/*.csv
+data/analyzed/indicators/*.csv
+data/analyzed/with_indicators/*.csv
+data/news.db
+data/models/kronos_checkpoints/adapter_model.safetensors
+data/reports/json/*.json
+data/reports/charts/*.png
+logs/*.log
+
+# Node
+node_modules/
+dashboard/dist/
+dashboard/.vite/
+
+# Misc
+.env
+.env.local
+tmp/
+*.log
+*.pkl
+*.npz
