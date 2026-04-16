@@ -22,9 +22,103 @@ Môi trường huấn luyện AI học cách chống chọi khủng hoảng:
 
 ---
 
-## 🏗️ Detailed Architecture
+## 🏗️ Kiến trúc Hệ thống (System Architecture)
 
-### Phase 1: Data Precision (`src/data_collector.py`)
+### 1. Mô hình Tổng quát (High-Level Overview)
+Dưới đây là sơ đồ luồng dữ liệu 4 giai đoạn từ lúc thu thập đến khi ra quyết định đầu tư:
+
+```mermaid
+graph TB
+    subgraph Phase1["📂 Phase 1: Data Precision"]
+        DC["data_collector.py<br/>(vnstock VCI/TCBS/SSI)"]
+        TI["technical_indicators.py<br/>(SMA, RSI, MACD, ATR)"]
+        STORE["Parquet Storage"]
+    end
+
+    subgraph Phase2["🧠 Phase 2: Forecasting"]
+        CH["Chronos T5<br/>Fine-tuned LoRA"]
+    end
+
+    subgraph Phase3["🤖 Phase 3: Multi-Agent"]
+        MA["Agent Coordinator<br/>(Weighted Sum)"]
+        TEC["Technical Agent"]
+        SEN["Sentiment Agent"]
+        MAC["Macro Agent"]
+        RSK["Risk Agent"]
+    end
+
+    subgraph Phase4["📈 Phase 4: Execution & Evolution"]
+        LB["live_broker.py<br/>(Live Order)"]
+        RH["rlhf_engine.py<br/>(Self-Learning)"]
+        VG["virtual_gym.py<br/>(DRL Training)"]
+    end
+
+    DC --> TI --> STORE
+    STORE --> CH & MA & VG
+    CH --> MA
+    MA --> TEC & SEN & MAC & RSK
+    MA --> LB & RH
+    RH -.->|Update Weights| MA
+```
+
+### 2. Luồng Huấn luyện AI Gym (DRL Flow)
+Chi tiết cách AI học tập trong môi trường giả lập có **Chaos Engine**:
+
+```mermaid
+sequenceDiagram
+    participant Gym as Virtual Gym V2
+    participant Chaos as Chaos Engine (Thiên nga đen)
+    participant Agent as PPO Agent (AI)
+    
+    loop Episodic Training
+        Gym->>Gym: Khởi tạo giá & chỉ báo (Indicator Recalc)
+        Gym->>Chaos: Check xác suất dính biến cố
+        alt Có biến cố (Sentiment Shock)
+            Chaos->>Gym: Bẻ gãy đường giá & Chỉ báo
+            Gym->>Agent: State [Sentiment cực thấp, RSI gãy]
+        else Bình thường
+            Gym->>Agent: State [Giá, MACD, RSI ổn định]
+        end
+        Agent->>Gym: Quy định Tỉ trọng (Target Weight 0-1)
+        Gym->>Gym: Thực thi lệnh (Lô 100, Phí 0.2%)
+        Gym->>Agent: Reward (Log Return) + New State
+    end
+```
+
+### 3. Luồng Ra quyết định (Inference Flow)
+Cách 4 Agent phối hợp để đưa ra tín hiệu MUA/BÁN thời gian thực:
+
+```mermaid
+graph LR
+    Market[Dữ liệu Tức thời] --> Tech[Technical Agent]
+    News[Tin tức CafeF/FireAnt] --> Sent[Sentiment Agent]
+    Rate[Lãi suất/VN-INDEX] --> Macro[Macro Agent]
+    Vol[Biến động ATR] --> Risk[Risk Agent]
+    
+    Tech & Sent & Macro & Risk --> Coord{Agent Coordinator}
+    
+    Coord -->|Trọng số RLHF| Signal[Tín hiệu Cuối cùng]
+    Signal -->|Confidence > 0.3| Broker[Gửi lệnh tới VNDirect/SSI]
+```
+
+### 4. Luồng Mô phỏng Mục tiêu (Simulation Flow)
+Mô tả logic của bộ mô phỏng Fast-Mode:
+
+```mermaid
+graph TD
+    User([Nhập Vốn & Mục tiêu]) --> Loader[Load Dữ liệu Parquet]
+    Loader --> Loop[Vòng lặp từng ngày - Playback]
+    Loop --> Strategy[Áp dụng Policy: EMA/MACD/RSI]
+    Strategy --> Executor[Tính toán lô 100 & Phí]
+    Executor --> Tracker{Kiểm tra Mục tiêu}
+    Tracker -->|Chưa đạt| Loop
+    Tracker -->|Đạt 150%| Log[Ghi nhận Ngày đạt mục tiêu]
+    Log --> Final[Tiếp tục chạy hết dải để đo Drawdown]
+```
+
+---
+
+## 🏗️ Detailed Phase Descriptions
 Hệ thống thu thập dữ liệu đa nguồn (VCI, TCBS, SSI) để đảm bảo tính sẵn sàng. Dữ liệu được lưu trữ dưới dạng **Apache Parquet** để tối ưu tốc độ đọc ghi cho các thuật toán Deep Learning.
 
 ### Phase 2: Forecasting Brain (`src/kronos_trainer.py`)
