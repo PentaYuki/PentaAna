@@ -8,9 +8,29 @@ from chronos import ChronosPipeline
 _CACHED_PIPELINE = None
 
 def load_and_prepare_data(ticker: str = 'VNM') -> tuple:
-    """Chuẩn bị chuỗi thời gian từ dữ liệu đã tải."""
+    """Chuẩn bị chuỗi thời gian từ dữ liệu đã tải. Nếu chưa có hoặc cũ, tự động kéo dữ liệu."""
+    import time
+    import sys
     data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
-    df = pd.read_parquet(os.path.join(data_dir, "raw", "parquet", f"{ticker}_history.parquet"), engine='pyarrow')
+    raw_dir = os.path.join(data_dir, "raw", "parquet")
+    pq_path = os.path.join(raw_dir, f"{ticker}_history.parquet")
+    
+    # Auto-fetch if missing or older than 24h
+    if not os.path.exists(pq_path) or (time.time() - os.path.getmtime(pq_path)) > 86400:
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
+        if src_dir not in sys.path:
+            sys.path.append(src_dir)
+        try:
+            from data_collector import get_stock_history
+            print(f"🔄 Dữ liệu {ticker} chưa có hoặc cũ (>24h), đang tải tự động...")
+            get_stock_history(ticker, years=1)
+        except Exception as e:
+            if not os.path.exists(pq_path):
+                raise ValueError(f"Mã '{ticker}' không tồn tại hoặc lỗi lấy dữ liệu: {e}")
+            else:
+                print(f"⚠️ Lỗi tải mới {ticker}, dùng dữ liệu cũ: {e}")
+
+    df = pd.read_parquet(pq_path, engine='pyarrow')
     df['time'] = pd.to_datetime(df['time'])
     df = df.sort_values('time')
     

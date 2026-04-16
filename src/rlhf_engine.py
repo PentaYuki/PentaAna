@@ -439,7 +439,7 @@ class WeightAdapter:
 
 def fill_pending_outcomes(
     store: FeedbackStore,
-    outcome_delay_days: int = 30,
+    outcome_delay_days: int = 5,
     raw_parquet_dir: Optional[str] = None,
 ):
     """
@@ -502,8 +502,8 @@ def fill_pending_outcomes(
 
 def run_rlhf_cycle(
     ticker: str,
-    outcome_delay_days: int = 30,
-    min_samples: int = 10,
+    outcome_delay_days: int = 5,
+    min_samples: int = 5,
 ) -> dict:
     """
     Chạy một chu kỳ RLHF:

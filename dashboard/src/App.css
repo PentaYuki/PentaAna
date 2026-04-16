@@ -202,6 +202,30 @@ body {
 }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* ── Live Signal Button (mới) ─────────────────────────────────────────────── */
+.btn-live {
+  background: rgba(0, 255, 136, 0.10);
+  color: #00FF88;
+  border: 1px solid rgba(0, 255, 136, 0.40);
+  padding: 0 28px;
+  height: 56px;
+  font-family: var(--header-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.btn-live:hover:not(:disabled) {
+  background: rgba(0, 255, 136, 0.20);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+.btn-live:disabled { opacity: 0.5; cursor: not-allowed; }
+
 /* ─── Pipeline ────────────────────────────────────────────────────────────── */
 .pipeline {
   display: flex;
@@ -369,6 +393,25 @@ body {
 .kv-row span:first-child { color: var(--text-dim); font-size: 11px; }
 .kv-row span:last-child  { font-family: var(--data-font); color: var(--accent-white); }
 
+/* ─── Chart Tooltip (FIX: class bị thiếu) ───────────────────────────────── */
+.chart-tooltip {
+  background: rgba(6, 9, 20, 0.95);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  padding: 10px 14px;
+  font-family: var(--data-font);
+  font-size: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  min-width: 120px;
+}
+.chart-tooltip-title {
+  font-size: 10px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+  font-family: var(--header-font);
+}
+
 /* ─── Signals Table ───────────────────────────────────────────────────────── */
 .signals-table {
   width: 100%;
@@ -446,4 +489,6 @@ body {
   .main   { padding: 24px 16px; }
   .metrics-6 { grid-template-columns: 1fr 1fr; }
   .header-title { font-size: 18px; }
+  .search-row { flex-wrap: wrap; }
+  .btn-live { width: 100%; justify-content: center; }
 }

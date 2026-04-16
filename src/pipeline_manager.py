@@ -1,12 +1,22 @@
+
 import logging
 import os
+import sys
 import json
 import time
 from pathlib import Path
 import pandas as pd
 from apscheduler.schedulers.background import BackgroundScheduler
+# Nạp biến môi trường từ .env
+from dotenv import load_dotenv
+load_dotenv()
 
+# Đảm bảo các module trong src/ đều import được dù gọi từ bất kỳ đâu
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+SRC_DIR  = os.path.dirname(os.path.abspath(__file__))
+if SRC_DIR not in sys.path:
+    sys.path.insert(0, SRC_DIR)
+
 SENTINEL_FILE = Path(os.path.join(BASE_DIR, "data", ".sentiment_done"))
 DRIFT_FLAG_PATH = Path(os.path.join(BASE_DIR, "data", "reports", "json", "drift_retrain_queue.json"))
 LOG_DIR = Path(os.path.join(BASE_DIR, "logs"))
@@ -143,16 +153,54 @@ def job_train_kronos():
         logger.error("[JOB 02:00] Lỗi Training: %s", e, exc_info=True)
 
 
+def job_evaluate_rlhf():
+    """Mỗi ngày: Cập nhật Interim Reward T+5 và adapt weights."""
+    logger.info("[JOB RLHF] Bắt đầu đánh giá Interim Reward và cập nhật AI Weights...")
+    try:
+        from rlhf_engine import run_rlhf_cycle
+        result = run_rlhf_cycle(ticker="ALL", outcome_delay_days=5, min_samples=5)
+        logger.info("[JOB RLHF] Hoàn tất! Đã process %d rewards, điền %d kết quả.", 
+                    result.get("rewards_processed", 0), result.get("outcomes_filled", 0))
+    except Exception as e:
+        logger.error("[JOB RLHF] Lỗi evaluate: %s", e, exc_info=True)
+
+
 if __name__ == "__main__":
     logger.info("Khởi động nền tảng Điều phối (Jobs Manager)...")
-    logger.info("- Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00")
+    logger.info("- Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00")
 
     scheduler = BackgroundScheduler()
     scheduler.add_job(job_crawl_news,    'interval', hours=2, id="crawl_news")
     scheduler.add_job(job_run_sentiment, 'cron', hour=0, minute=0)
+    scheduler.add_job(job_evaluate_rlhf, 'cron', hour=1, minute=0)
     scheduler.add_job(job_train_kronos,  'cron', hour=2, minute=0)
     scheduler.add_job(job_build_analyzed_data, 'cron', hour=3, minute=0)
+    # Thêm job live trading và scan stops (bọc try/except tránh crash toàn bộ)
+    try:
+        from live_broker import job_live_trading, job_scan_stops
+        scheduler.add_job(
+            job_live_trading,
+            'cron',
+            day_of_week='mon-fri',
+            hour=15, minute=35,
+            id="live_trading",
+        )
+        scheduler.add_job(
+            job_scan_stops,
+            'cron',
+            day_of_week='mon-fri',
+            hour='9-14',
+            minute='*/5',
+            id="scan_stops",
+        )
+        logger.info("[✅] Live trading jobs đã được đăng ký.")
+    except ImportError as e:
+        logger.warning("[live_broker] Không thể import: %s — Live trading jobs bị bỏ qua.", e)
+    except Exception as e:
+        logger.error("[live_broker] Lỗi khi đăng ký job: %s", e, exc_info=True)
+
     scheduler.start()
+    logger.info("[✅] Pipeline Manager Scheduler đã khởi động thành công.")
 
     # Chạy crawl ngay lần đầu khi khởi động
     job_crawl_news()

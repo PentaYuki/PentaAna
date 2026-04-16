@@ -8,7 +8,7 @@ RAW_PQ_DIR  = os.path.join(DATA_DIR, "raw", "parquet")
 RAW_CSV_DIR = os.path.join(DATA_DIR, "raw", "csv")
 
 
-PRICE_SOURCES = ["VCI", "TCBS", "SSI"]
+PRICE_SOURCES = ["KBS", "VCI", "TCBS", "SSI"]
 
 def get_stock_history(ticker: str, years: int = 5) -> pd.DataFrame:
     """

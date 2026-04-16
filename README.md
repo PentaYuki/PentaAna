@@ -1,6 +1,26 @@
 # PentaAna — Multi-Agent Stock Intelligence Framework
 
-**PentaAna** (formerly KRONOS) is an advanced AI-driven stock market analysis system designed for the Vietnamese stock market (VN-INDEX). It combines reinforcement learning from human feedback (RLHF), time-series forecasting with fine-tuned language models, and a multi-agent decision-making framework to generate high-confidence trading signals.
+**PentaAna** (formerly KRONOS) is a high-performance, AI-native stock market analysis and autonomous trading framework specifically tailored for the Vietnamese market (VN-INDEX).
+
+It orchestrates a sophisticated ensemble of **Chronos-based time-series forecasting**, **Multi-Agent coordination**, and **Deep Reinforcement Learning (DRL)** within a self-evolving MLOps pipeline.
+
+---
+
+## 🌟 New Feature: Strategy Intelligence & Simulation (V2)
+
+The latest version introduces the **Goal-Oriented Investment Engine**, bridging the gap between raw AI signals and real-world capital management.
+
+### 🎯 Goal-Oriented Simulation (Fast-Mode)
+*   **Targeted Investment**: Set an initial capital (e.g., 9M VND) and a profit goal.
+*   **Deterministic Logic**: Uses high-speed indicator-based strategy simulation without LLM overhead.
+*   **Realistic Constraints**: Implements HOSE/HNX **lot sizing (100 shares)** and transaction fee modeling (0.2%).
+*   **Safety First**: Full-cycle simulation including **Drawdown Monitoring** to expose risk post-target achievement.
+
+### 🏛️ Virtual Strategy Gym (DRL V2)
+*   **Deep Reinforcement Learning**: Powered by **OpenAI Stable-Baselines3 (PPO)**.
+*   **Chaos Engine**: Simulates "Black Swan" events (Pandemic, Crisis) using a **Causal Sentiment → Price** model.
+*   **No-Leak Architecture**: Recalculates all technical indicators (MACD, RSI) on the mutated "chaos" price to ensure zero future-leakage during training.
+*   **Continuous Portfolio Control**: Agent learns optimal **Target Weighting [0-1]** instead of binary Buy/Sell, mastering the art of position sizing.
 
 ---
 
@@ -9,10 +29,10 @@
 ### Core Innovation
 PentaAna implements a **4-Phase closed-loop system** where market intelligence continuously improves through feedback:
 
-1. **Phase 1: Data Foundation** — Multi-source price data collection and technical indicator computation
-2. **Phase 2: Core Brain** — Fine-tuned Chronos T5 time-series forecasting with LoRA adaptation
-3. **Phase 3: Multi-Agent Engine** — Autonomous agents (Technical, Sentiment, Macro, Risk) with weighted coordination
-4. **Phase 4: Self-Improvement Loop** — MLOps-driven drift detection and RLHF-based weight adaptation
+1.  **Phase 1: Data Precision** — Parquet-based market data warehousing + Technical Indicator compute.
+2.  **Phase 2: Forecasting Brain** — Fine-tuned **Chronos T5** (via PEFT LoRA) for price trajectory.
+3.  **Phase 3: Agent Orchestration** — Multi-Agent coordination (Tech, Sentiment, Macro, Risk).
+4.  **Phase 4: Evolution & Execution** — RLHF-based weight adaptation + **Real-time Live Broker** integration.
 
 ---
 
@@ -22,376 +42,120 @@ PentaAna implements a **4-Phase closed-loop system** where market intelligence c
 graph TB
     subgraph Data["📁 Phase 1: Data Engine"]
         DC["data_collector.py<br/>(vnstock VCI/TCBS/SSI)"]
-        RP["data/raw/parquet"]
-        TI["technical_indicators.py<br/>(SMA, RSI, MACD, BB, ATR)"]
-        AN["data/analyzed/indicators"]
+        TI["technical_indicators.py<br/>(SMA, RSI, MACD, ATR)"]
     end
 
-    subgraph Intel["🧠 Phase 2 & 3: Intelligence Core"]
-        NC["news_crawler.py<br/>(RSS, Playwright, Stealth)"]
-        DB1["news.db<br/>(SQLite)"]
+    subgraph Simulation["🕹️ Virtual Market & Simulation"]
+        VG["virtual_gym.py<br/>(Gymnasium V2)"]
+        CE["Chaos Engine<br/>(Black Swan Simulation)"]
+        DT["drl_trainer.py<br/>(PPO Agent)"]
+        GS["goal_simulator.py<br/>(Strategy Backtest)"]
+    end
+
+    subgraph Intel["🧠 Intelligence Core"]
         SA["sentiment_analyzer.py<br/>(FinBERT + PhoBERT)"]
-        
         KT["kronos_trainer.py<br/>(Chronos T5 + LoRA)"]
-        CP["models/kronos_checkpoints"]
-        
-        PM["phase3_multi_agent.py"]
-        TEC["Enhanced Agents<br/>(Tech, Sent, Macro, Risk)"]
+        PM["phase3_multi_agent.py<br/>(Agent Coordinator)"]
     end
 
-    subgraph RLLoop["🔄 Phase 4: Self-Learning Loop"]
-        RH["rlhf_engine.py<br/>(Reward Calculation)"]
-        FDB["rlhf_feedback<br/>(SQLite)"]
-        WA["WeightAdapter<br/>(EWM Algorithm)"]
-        RW["rlhf_weights_ticker.json"]
-        
-        MP["mlops_pipeline.py<br/>(Drift Detection PSI)"]
-        TQ["drift_retrain_queue.json"]
+    subgraph Execution["📈 Execution & Live"]
+        LB["live_broker.py<br/>(VNDirect/SSI API)"]
+        RH["rlhf_engine.py<br/>(Reward Loop)"]
     end
 
-    subgraph UI["🖥️ Frontend & API"]
+    subgraph UI["🖥️ PentaAI Dashboard"]
         WD["web_dashboard.py<br/>(FastAPI)"]
-        REACT["Vite + React<br/>(Dashboard UI)"]
+        REACT["React UI<br/>(Cyberpunk Terminal)"]
     end
 
-    DC --> RP
-    RP --> TI
-    TI --> AN
-    
-    NC --> DB1
-    DB1 --> SA
-    
-    AN & DB1 --> PM
-    PM --> KT
-    KT --> CP
-    CP --> TEC
-    
-    TEC --> RH
-    RH --> FDB
-    FDB --> WA
-    WA --> RW
-    RW -.->|Feedback| PM
-    
-    AN --> MP
-    MP --> TQ
-    TQ -.->|Trigger Retrain| KT
-    
-    PM & KT & RH --> WD
+    DC --> TI
+    TI --> VG & GS & PM
+    VG --> CE --> DT
+    DT --> PM
+    PM --> LB & RH
+    LB & GS & DT --> WD
     WD --> REACT
 ```
 
 ---
 
-## 🔄 Fine-Tuning Workflow: Before vs After
+## 🛠️ Technology Stack
 
-### BEFORE Fine-Tuning (Generic Chronos T5)
+### AI & Machine Learning
+| Component | Technology | Significance |
+|-----------|-----------|--------------|
+| **DRL Algorithm** | **PPO (Proximal Policy Optimization)** | State-of-the-art stability in continuous action spaces |
+| **RL Environment** | **Gymnasium (V2)** | Standardized env for agent-market interaction |
+| **Forecasting** | **Chronos T5-Small** | Amazon's foundational time-series model |
+| **Fine-Tuning** | **PEFT LoRA** | Drastically reduced VRAM footprint for M1/M2/M3 chips |
 
-```mermaid
-graph LR
-    subgraph Generic["Generic Model Performance"]
-        GenData["Generic Time-Series Data<br/>(No market context)<br/><br/>✗ Large bias<br/>✗ High variance<br/>✗ Slow convergence"]
-        GenModel["Chronos T5-Small<br/>(46M params)<br/>46M params to learn<br/><br/>Training time: ~4h<br/>RAM: >16GB needed"]
-        GenForecast["Forecast<br/>Accuracy: ~58%<br/>Sharpe: -0.459<br/>Win Rate: 45.8%"]
-    end
-
-    GenData --> GenModel
-    GenModel --> GenForecast
-    
-    style GenData fill:#ffcccc
-    style GenModel fill:#ffdddd
-    style GenForecast fill:#ffeeee
-```
-
-### AFTER Fine-Tuning (LoRA-Adapted Chronos T5)
-
-```mermaid
-graph LR
-    subgraph Tuned["Fine-Tuned Model Performance"]
-        VietData["Vietnamese Market Data<br/>(OHLCV + Sentiment)<br/><br/>✓ Bias reduced<br/>✓ Domain-aware learning<br/>✓ Fast convergence"]
-        LoRA["Chronos T5-Small<br/>+ LoRA Adapter<br/>~1.8% params (82K)<br/><br/>Training time: ~30m<br/>RAM: 4-8GB safe"]
-        TunedForecast["Forecast<br/>Accuracy: ~65-72%<br/>Sharpe: 4.639 VCB<br/>Win Rate: 50%+"]
-    end
-
-    VietData --> LoRA
-    LoRA --> TunedForecast
-    
-    style VietData fill:#ccffcc
-    style LoRA fill:#ddffdd
-    style TunedForecast fill:#eeffee
-```
+### Infrastructure & Execution
+| Component | Technology | Significance |
+|-----------|-----------|--------------|
+| **Live Broker** | **VNDirect / SSI API** | Direct order execution on Vietnamese exchanges |
+| **Async Backend** | **FastAPI + Uvicorn** | High-concurrency async pipeline support |
+| **Data Format** | **Apache Parquet** | High-speed columnar data storage |
+| **UI** | **React 18 + Recharts** | Real-time monitoring of Equity Curves & Drawdowns |
 
 ---
 
-## 🛠️ Technologies & Stack
+## 🚀 Getting Started
 
-### Core ML & Forecasting
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Time-Series Forecasting** | [Chronos T5-Small](https://github.com/amazon-science/chronos-forecasting) (Amazon) | 46M-param foundational model for price prediction |
-| **Parameter Efficiency** | [PEFT LoRA](https://github.com/huggingface/peft) (r=8, α=32) | Fine-tune only 1.8% of parameters (82K) saves 12GB RAM |
-| **Sentiment Analysis** | [FinBERT](https://huggingface.co/ProsusAI/finbert) (EN) + [PhoBERT](https://huggingface.co/vinai/phobert-base) (VI) | Financial NLP for news scoring |
-| **Deep Learning** | PyTorch 2.0 + Transformers | Ecosystem for model orchestration |
+### 1. Requirements
+*   Python 3.10+
+*   Node.js 18+
+*   `stable-baselines3`, `gymnasium`, `pyarrow` (New dependencies)
 
-### Data Processing Pipeline
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Market Data** | [vnstock](https://vnstock.site/) (VCI/TCBS/SSI) | Vietnamese stock price with fallback sources |
-| **News Crawling** | [Playwright](https://playwright.dev/) + [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/) | Full-text extraction + JavaScript automation |
-| **Data Storage** | [SQLite](https://www.sqlite.org/) + [Parquet](https://parquet.apache.org/) | ACID compliance + columnar analytics |
-| **TA Indicators** | [pandas-ta](https://github.com/twopirllc/pandas-ta) | 30+ technical indicators (SMA, RSI, MACD, BB, ATR, OBV) |
-
-### Multi-Agent & Reinforcement Learning
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Agent Coordination** | Custom weighted-sum | Dynamically adjust 4 agents per ticker |
-| **Reward Function** | Alpha-return benchmark | VNINDEX-adjusted performance signal |
-| **Weight Adaptation** | EWM (Exp. Weighted Moving) | Per-agent learning: Tech=0.08, Sent=0.15, Macro=0.05, Risk=0.10 |
-| **Drift Detection** | PSI (Population Stability Index) | Auto-retrain trigger when PSI > 0.20 |
-| **Job Orchestration** | [APScheduler](https://apscheduler.readthedocs.io/) | Automated crawl→sentiment→train pipeline |
-
-### Backend & Frontend
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **API Server** | [FastAPI](https://fastapi.tiangolo.com/) 0.122 | REST + WebSocket for real-time training status |
-| **ASGI Server** | [Uvicorn](https://www.uvicorn.org/) 0.38 | Async HTTP/WebSocket with high throughput |
-| **Frontend Framework** | [Vite](https://vitejs.dev/) 5 + [React](https://react.dev/) 18 | SPA with HMR and tree-shaking |
-| **Charting** | [Recharts](https://recharts.org/) | Real-time price/loss/signal visualization |
-| **Icons** | [Lucide React](https://lucide.dev/) | Terminal-style icon library |
-
-### Infrastructure & Compute
-| Component | Technology | Purpose |
-|-----------|-----------|---------|
-| **Language** | Python 3.11 | Async/type-safe execution |
-| **GPU Support** | MPS (Metal Performance Shaders) | Apple Silicon M1/M2; CPU fallback |
-| **Memory Guard** | Custom pre-training cleanup | Prevent OOM on 8GB machines |
-| **Logging** | Python `logging` module | Structured logs to `logs/pipeline_manager.log` |
-
----
-
-## 🚀 Quick Start
-
-### 1. Installation
-
+### 2. Setup
 ```bash
-# Clone and setup
-git clone https://github.com/PentaYuki/PentaAna.git
-cd PentaAna
-
-python3.11 -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-
+# Install dependencies
 pip install -r requirements.txt
-python -c "from chronos import ChronosPipeline; print('✓ Chronos ready')"
-```
+pip install stable-baselines3 gymnasium pyarrow
 
-### 2. Launch Services
-
-**Terminal 1 — Backend (Port 8088):**
-```bash
-source .venv/bin/activate
+# Launch Backend
 uvicorn src.web_dashboard:app --host 0.0.0.0 --port 8088
+
+# Launch UI
+cd dashboard && npm run dev
 ```
-
-**Terminal 2 — Background Jobs:**
-```bash
-source .venv/bin/activate
-python src/pipeline_manager.py
-```
-
-**Terminal 3 — Frontend (Port 5173):**
-```bash
-cd dashboard
-npm install
-npm run dev
-```
-
-### 3. Access Dashboard
-
-**[http://localhost:5173](http://localhost:5173)**
 
 ---
 
 ## 📖 Key Workflows
 
-### Fine-Tuning via UI
+### Virtual Strategy Training (AI Gym)
+1. Open Dashboard → **AI GYM** tab.
+2. Observe the AI training in a 2024 "market episode".
+3. The Chaos Engine will randomly inject sentiment shocks (Downturns).
+4. Watch the AI learn to reduce its **Target Weight** before the price decay sets in.
 
-1. Navigate to Dashboard → **FINE-TUNE HYPERPARAMETERS**
-2. Adjust parameters:
-   - **Epochs:** 3-5 (iterations over data)
-   - **Learning Rate:** 2e-4 (LoRA-safe value)
-   - **Context Length:** 128-256 (historical bars)
-   - **Batch Size:** 2-8 (samples per step)
-   - **Sentiment Alpha:** 0.1-0.3 (news weight blending)
-3. Click **▶ START FINE-TUNE**
-4. Monitor via **WebSocket progress bar** + **Loss curve**
-5. Model saved to: `data/models/kronos_checkpoints/`
-
-### Reinforcement Learning Loop (Automated)
-
-```
-1. SIGNAL GENERATION
-   Coordinator combines 4 agents with learnable weights
-   → BUY/SELL/HOLD signal + Confidence [0-1]
-   → Stored in rlhf_feedback table
-
-2. MARKET EVALUATION (3-5 days later)
-   Actual price return vs forecast
-   → Reward = (Actual_Return% - VNINDEX_Return%) × Sign × Confidence
-
-3. WEIGHT UPDATE
-   EWM: Weight_new = Weight_old + Alpha × Reward
-   Per-agent Alpha: sentiment=0.15 (fast), macro=0.05 (slow)
-   Constraints: 5% ≤ weight ≤ 60%
-
-4. USER FEEDBACK (Optional)
-   Star rating (1-5) → Bonus reward signal
-```
-
-### Auto-Retrain on Market Drift
-
-```
-MLOps Pipeline (hourly monitoring):
-  30-day returns vs 90-day baseline
-  → PSI calculation
-  → Sharpe(30d) < 0.30?
-  → YES → Queue ticker in drift_retrain_queue.json
-  → 02:00 UTC+7 cron job → kronos_trainer (priority on drift tickers)
-  → Log in mlops_log.json for dashboard review
-```
+### Goal-Oriented Backtesting
+1. Navigate to **STRATEGY SIMULATION**.
+2. Enter your initial capital (VND) and target profit goals.
+3. The system runs a 1-year historical playback using the **Fast-Mode** policy.
+4. Review the **Drawdown Chart** to understand the psychological risk of the strategy.
 
 ---
 
-## 📊 System Performance
-
-**Backtest:** 2025-03-24 → 2026-04-10 (262 days, 13 tickers)
-**Settings:** min_confidence=0.30, warmup=55 bars, hold=30 days
-
-| Ticker | Trades | Win Rate | Return | Sharpe | Max DD |
-|--------|--------|----------|--------|--------|--------|
-| VCB    | 6      | 50.0%    | +17.25% | 4.639  | -14.0% |
-| FPT    | 7      | 42.9%    | -10.61% | -4.469 | -18.5% |
-| HPG    | 9      | 22.2%    | -14.53% | -2.775 | -30.1% |
-| TCB    | 7      | 42.9%    | -10.01% | -3.247 | -16.8% |
-| MWG    | 6      | 66.7%    | -2.12%  | -0.753 | -11.1% |
-| **Avg** | **41** | **45.8%** | **-1.52%** | **-0.459** | **-18.1%** |
-
-**Note:** Baseline metrics pre-RLHF. RLHF weight adaptation improves these over time.
-
----
-
-## 📁 Project Structure
-
+## 📁 Project Structure (Upgraded)
 ```
 stock-ai/
 ├── src/
-│   ├── data_collector.py         # Multi-source price crawling
-│   ├── technical_indicators.py   # TA computation
-│   ├── news_crawler.py           # RSS + Playwright news extraction
-│   ├── sentiment_analyzer.py     # FinBERT + PhoBERT scoring
-│   ├── kronos_trainer.py         # LoRA fine-tuning engine
-│   ├── phase3_multi_agent.py     # 4-agent coordinator
-│   ├── enhanced_agents.py        # Agent implementations
-│   ├── rlhf_engine.py            # Reward + weight update logic
-│   ├── mlops_pipeline.py         # Drift detection + PSI
-│   ├── pipeline_manager.py       # APScheduler orchestrator
-│   ├── web_dashboard.py          # FastAPI REST + WebSocket
-│   ├── coordinator_tuner.py      # Grid search optimizer
-│   ├── lora_tuner.py             # Hyperparameter sweep
-│   ├── phase4_orchestrator.py    # Full Phase 4 runner
-│   ├── llm_analyst.py            # Ollama integration
-│   ├── macro_data.py             # VNINDEX + macro features
-│   ├── sentiment_features.py     # Sentiment preprocessing
-│   ├── memory_guard.py           # RAM cleanup
-│   └── backtest_engine.py        # Walk-forward validation
-│
-├── dashboard/                    # Vite + React SPA
-│   ├── src/App.jsx               # Main component
-│   ├── src/App.css               # Terminal cyberpunk theme
-│   ├── vite.config.js
-│   └── package.json
-│
-├── data/
-│   ├── raw/parquet/              # 15 tickers × 262 days
-│   ├── raw/csv/                  # Backup format
-│   ├── analyzed/                 # Computed indicators
-│   ├── models/kronos_checkpoints/# LoRA adapter
-│   └── reports/json/             # Metrics + logs
-│
-├── tests/                        # 65 passing tests
-│   ├── backtest_*.py
-│   ├── test_phase*.py
-│   ├── test_psi_drift.py
-│   ├── test_rlhf_loop.py
-│   └── [12 more unit tests]
-│
-├── requirements.txt
-├── README.md (this file)
-└── setup.sh
+│   ├── virtual_gym.py      # [NEW] Virtual environment for AI training
+│   ├── drl_trainer.py      # [NEW] PPO training orchestration
+│   ├── goal_simulator.py   # [NEW] Targeted strategy simulation
+│   ├── live_broker.py      # [NEW] Direct exchange integration (VND/SSI)
+│   ├── rlhf_engine.py      # Signal rating & weight adaptation
+│   ├── kronos_trainer.py   # LoRA forecasting engine
+│   └── ...
+├── dashboard/              # React Frontend
+└── data/                   # Parquet datasets & PPO model checkpoints
 ```
 
 ---
 
-## 🧪 Testing
+## 🤝 Contributing & License
+**MIT License**. Proprietary algorithms for Chaos Engineering. 
+Built with ❤️ for the Vietnamese Trading Community.
 
-All 4 phases tested with **65 passing tests:**
-
-```bash
-python -m pytest tests/ -v --tb=short
-```
-
-Coverage:
-- ✓ `backtest_basic.py` — Single-ticker Chronos
-- ✓ `backtest_comparison.py` — Pre/post fine-tune
-- ✓ `backtest_multi_agent.py` — Full coordination
-- ✓ `test_phase3_components.py` — Agent units
-- ✓ `test_psi_drift.py` — Drift detection
-- ✓ `test_rlhf_loop.py` — Feedback mechanism
-- ✓ ... [59 more comprehensive tests]
-
----
-
-## 🔐 Design Principles
-
-1. **Robustness** — Multi-source fallback (VCI → TCBS → SSI), graceful degradation
-2. **Efficiency** — LoRA reduces training 4h→30m RAM 16GB→4GB
-3. **Transparency** — All signals logged with agent scores + confidence
-4. **Scalability** — Async FastAPI, Parquet columnar, per-ticker RLHF weights
-
----
-
-## 📝 License
-
-MIT License — See LICENSE file
-
----
-
-## 🤝 Contributing
-
-1. Fork repo
-2. Create feature branch (`git checkout -b feature/amazing`)
-3. Commit (`git commit -m 'Add feature'`)
-4. Push (`git push origin feature/amazing`)
-5. Open Pull Request
-
----
-
-## 📧 Contact & Status
-
-**GitHub:** [https://github.com/PentaYuki/PentaAna](https://github.com/PentaYuki/PentaAna)
-**Status:** Production-Ready (13 Apr 2026)
-**Language:** Vietnamese + English
-
----
-
-## 🎯 Roadmap
-
-- [ ] LangGraph integration for conditional state machines
-- [ ] CafeF/FireAnt connectors for price redundancy
-- [ ] React fine-tune parameter form (currently FastAPI endpoint only)
-- [ ] MLflow for experiment tracking
-- [ ] TorchServe for model deployment
-- [ ] Multi-market expansion (ASX, SGX, SET)
-
----
-
-**PentaAna © 2026 — Evolving Intelligence for Vietnamese Markets**
+**PentaAna © 2026 — Evolving Market Intelligence.**

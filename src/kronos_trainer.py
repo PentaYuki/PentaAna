@@ -55,6 +55,14 @@ EPOCHS              = 5
 LR                  = 1e-4
 MAX_SAMPLES_TICKER  = 100   # giới hạn mẫu/mã để kiểm soát tiêu thụ RAM
 
+# ── M1 RAM Optimization (#20) ─────────────────────────────────────────────
+# Gradient accumulation — giúp tăng effective batch size mà không OOM.
+# effective_batch = BATCH_SIZE * GRAD_ACCUM_STEPS
+# Khi context=256: tự động giảm samples/ticker và tăng accum steps.
+GRAD_ACCUM_STEPS    = 4     # mặc định: effective batch = 2 × 4 = 8
+CONTEXT_256_MAX_SAMPLES = 30   # giảm samples khi context=256 (tránh OOM)
+RAM_REQUIRED_GB     = 7.0   # ngưỡng RAM để cho phép training
+
 # Tất cả mã có lịch sử CSV (bỏ VNINDEX — index, không phải cổ phiếu)
 TICKERS = ["ACB", "BID", "FPT", "GAS", "HPG", "MBB", "MSN", "MWG", "PNJ",
            "TCB", "VCB", "VHM", "VNM"]
@@ -358,6 +366,7 @@ def finetune_kronos(
     status_path: str = STATUS_PATH,
     seed: int = 42,
     deterministic: bool = True,
+    grad_accum_steps: int = GRAD_ACCUM_STEPS,
 ) -> dict | None:
     print("\n" + "=" * 60)
     print("=== Fine-Tune Kronos LoRA PEFT — Phase 2.5 ===")
@@ -366,14 +375,57 @@ def finetune_kronos(
     if tickers is None:
         tickers = TICKERS
 
+    # ── (#20) M1 RAM Guard ────────────────────────────────────────────────
+    # Tự động điều chỉnh max_samples khi context=256 để tránh OOM
+    if context_len >= 256 and max_samples_ticker > CONTEXT_256_MAX_SAMPLES:
+        print(
+            f"  [RAM] context={context_len} ≥ 256 → giảm max_samples "
+            f"từ {max_samples_ticker} → {CONTEXT_256_MAX_SAMPLES} và "
+            f"tăng grad_accum_steps → {max(grad_accum_steps, 8)}"
+        )
+        max_samples_ticker = CONTEXT_256_MAX_SAMPLES
+        grad_accum_steps   = max(grad_accum_steps, 8)
+
+    # Chạy memory_guard trước khi training
+    try:
+        from memory_guard import prepare_for_training, available_ram_gb
+        ram_ok = prepare_for_training()
+        if not ram_ok:
+            # Cố gắng gửi alert
+            try:
+                from logger_setup import alert_low_ram
+                alert_low_ram(
+                    available_gb=available_ram_gb(),
+                    required_gb=RAM_REQUIRED_GB,
+                )
+            except Exception:
+                pass
+            write_status({
+                "stage": "aborted",
+                "progress": 0,
+                "message": "Khong du RAM — training bi huy",
+                "updated_at": pd.Timestamp.now().isoformat(),
+            }, status_path)
+            return None
+    except ImportError:
+        print("  ⚠️  memory_guard không tìm thấy — bỏ qua RAM check")
+
     if deterministic:
         set_global_seed(seed)
+
+    effective_batch = batch_size * grad_accum_steps
+    print(
+        f"  [RAM] batch={batch_size} × grad_accum={grad_accum_steps} "
+        f"→ effective_batch={effective_batch}  context={context_len}"
+    )
 
     write_status({
         "stage": "starting",
         "progress": 0,
         "message": "Khoi tao fine-tune",
         "use_sentiment": use_sentiment,
+        "context_len": context_len,
+        "grad_accum_steps": grad_accum_steps,
         "updated_at": pd.Timestamp.now().isoformat(),
     }, status_path)
 
@@ -450,6 +502,7 @@ def finetune_kronos(
     for epoch in range(epochs):
         running_loss = 0.0
         n_batches    = 0
+        optimizer.zero_grad()   # (#20) zero grad ở đầu epoch
         batch_iter = _tqdm(loader, desc=f"Epoch {epoch+1}/{epochs}", leave=False,
                            dynamic_ncols=True)
         for batch_idx, (ctx_batch, fct_batch) in enumerate(batch_iter, start=1):
@@ -463,20 +516,25 @@ def finetune_kronos(
             attn_mask = attn_mask.to(device)
             label_ids = label_ids.to(device)
 
-            # Forward
+            # ── (#20) Gradient accumulation ──────────────────────────────
+            # Chia loss cho grad_accum_steps để gradient có scale đúng
             out  = peft_model(input_ids=input_ids, attention_mask=attn_mask, labels=label_ids)
-            loss = out.loss
-
-            # Backward
-            optimizer.zero_grad()
+            loss = out.loss / grad_accum_steps
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), 1.0)
-            optimizer.step()
 
-            running_loss += loss.item()
-            batch_losses.append(loss.item())
+            # Chỉ update optimizer sau mỗi grad_accum_steps batch
+            is_accum_step = (batch_idx % grad_accum_steps == 0) or (batch_idx == len(loader))
+            if is_accum_step:
+                torch.nn.utils.clip_grad_norm_(peft_model.parameters(), 1.0)
+                optimizer.step()
+                optimizer.zero_grad()
+
+            # Loss gốc (trước khi chia) để log
+            raw_loss = loss.item() * grad_accum_steps
+            running_loss += raw_loss
+            batch_losses.append(raw_loss)
             n_batches    += 1
-            batch_iter.set_postfix(loss=f"{loss.item():.4f}")
+            batch_iter.set_postfix(loss=f"{raw_loss:.4f}")
 
             if batch_idx % 50 == 0 or batch_idx == len(loader):
                 total_batches = max(1, epochs * len(loader))
@@ -489,7 +547,9 @@ def finetune_kronos(
                     "epochs": epochs,
                     "batch": batch_idx,
                     "batches_per_epoch": len(loader),
-                    "loss": round(float(loss.item()), 6),
+                    "grad_accum_steps": grad_accum_steps,
+                    "effective_batch": batch_size * grad_accum_steps,
+                    "loss": round(float(raw_loss), 6),
                     "updated_at": pd.Timestamp.now().isoformat(),
                 }, status_path)
 
@@ -523,6 +583,8 @@ def finetune_kronos(
         "device"           : device,
         "epochs"           : epochs,
         "batch_size"       : batch_size,
+        "grad_accum_steps" : grad_accum_steps,          # (#20)
+        "effective_batch"  : batch_size * grad_accum_steps,  # (#20)
         "learning_rate"    : learning_rate,
         "lora_r"           : 8,
         "lora_alpha"       : 32,
@@ -576,4 +638,20 @@ def finetune_kronos(
 
 
 if __name__ == "__main__":
-    finetune_kronos()
+    import argparse as _ap
+    _parser = _ap.ArgumentParser(description="Fine-tune Kronos LoRA")
+    _parser.add_argument("--context", type=int, default=CONTEXT_LEN,
+                         help=f"Context length (mặc định {CONTEXT_LEN}; 256 sẽ tự giảm samples)")
+    _parser.add_argument("--epochs", type=int, default=EPOCHS)
+    _parser.add_argument("--batch", type=int, default=BATCH_SIZE)
+    _parser.add_argument("--grad-accum", type=int, default=GRAD_ACCUM_STEPS,
+                         help="Gradient accumulation steps (#20)")
+    _parser.add_argument("--no-sentiment", action="store_true")
+    _a = _parser.parse_args()
+    finetune_kronos(
+        epochs=_a.epochs,
+        context_len=_a.context,
+        batch_size=_a.batch,
+        use_sentiment=not _a.no_sentiment,
+        grad_accum_steps=_a.grad_accum,
+    )
