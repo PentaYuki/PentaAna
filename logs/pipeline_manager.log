@@ -1,0 +1,490 @@
+2026-04-14 23:36:12 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-14 23:36:12 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-14 23:36:12 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-14 23:36:12 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-14 23:36:46 [INFO] pipeline_manager: [JOB CRAWL] 20 bài mới (VI: 0, EN: 20)
+2026-04-14 23:36:47 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 00:00:00 [INFO] apscheduler.executors.default: Running job "job_run_sentiment (trigger: cron[hour='0', minute='0'], next run at: 2026-04-15 00:00:00 +07)" (scheduled at 2026-04-15 00:00:00+07:00)
+2026-04-15 00:00:00 [INFO] pipeline_manager: [JOB 00:00] Bắt đầu chấm điểm Sentiment hàng loạt (Batch Scoring)...
+2026-04-15 00:01:17 [INFO] pipeline_manager: [JOB 00:00] Hoàn thành! Đã cắm cờ Sentinel.
+2026-04-15 00:01:17 [INFO] apscheduler.executors.default: Job "job_run_sentiment (trigger: cron[hour='0', minute='0'], next run at: 2026-04-16 00:00:00 +07)" executed successfully
+2026-04-15 09:04:53 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 09:04:53 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:04:53 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 09:04:53 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 09:04:53 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 09:04:53 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 09:06:14 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 09:06:14 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 09:06:14 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:14 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:14 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:14 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:06:15 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 09:06:15 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 09:06:15 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 09:06:15 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 09:07:48 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 09:07:48 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:07:48 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 09:07:48 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 09:07:48 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 09:07:48 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 09:08:20 [INFO] pipeline_manager: [JOB CRAWL] 20 bài mới (VI: 0, EN: 20)
+2026-04-15 09:08:21 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 09:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:10:00 +07)" (scheduled at 2026-04-15 09:10:00+07:00)
+2026-04-15 09:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:15:00 +07)" executed successfully
+2026-04-15 09:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:20:00 +07)" (scheduled at 2026-04-15 09:15:00+07:00)
+2026-04-15 09:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:20:00 +07)" executed successfully
+2026-04-15 09:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:25:00 +07)" (scheduled at 2026-04-15 09:20:00+07:00)
+2026-04-15 09:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:25:00 +07)" executed successfully
+2026-04-15 09:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:30:00 +07)" (scheduled at 2026-04-15 09:25:00+07:00)
+2026-04-15 09:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:30:00 +07)" executed successfully
+2026-04-15 09:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:35:00 +07)" (scheduled at 2026-04-15 09:30:00+07:00)
+2026-04-15 09:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:35:00 +07)" executed successfully
+2026-04-15 09:31:53 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 09:31:53 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 09:31:53 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 09:31:53 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 09:31:53 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 09:31:53 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 09:32:26 [INFO] pipeline_manager: [JOB CRAWL] 13 bài mới (VI: 0, EN: 13)
+2026-04-15 09:32:26 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 09:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:35:00 +07)" (scheduled at 2026-04-15 09:35:00+07:00)
+2026-04-15 09:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:40:00 +07)" executed successfully
+2026-04-15 09:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:45:00 +07)" (scheduled at 2026-04-15 09:40:00+07:00)
+2026-04-15 09:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 09:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 09:45:00 +07)" executed successfully
+2026-04-15 10:02:54 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 10:02:54 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:02:54 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 10:02:54 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 10:02:54 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 10:02:54 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 10:03:28 [INFO] pipeline_manager: [JOB CRAWL] 11 bài mới (VI: 0, EN: 11)
+2026-04-15 10:03:28 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 10:05:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 10:05:00 +07)" (scheduled at 2026-04-15 10:05:00+07:00)
+2026-04-15 10:05:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 10:05:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 10:10:00 +07)" executed successfully
+2026-04-15 10:09:56 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 10:09:56 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:09:56 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 10:09:56 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 10:09:56 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 10:09:56 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 10:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 10:10:00 +07)" (scheduled at 2026-04-15 10:10:00+07:00)
+2026-04-15 10:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 10:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 10:15:00 +07)" executed successfully
+2026-04-15 10:10:36 [INFO] pipeline_manager: [JOB CRAWL] 3 bài mới (VI: 0, EN: 3)
+2026-04-15 10:10:36 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 10:52:32 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 10:52:32 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 10:52:32 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 10:52:32 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 10:52:32 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 10:52:32 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 10:53:11 [INFO] pipeline_manager: [JOB CRAWL] 13 bài mới (VI: 0, EN: 13)
+2026-04-15 10:53:11 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 10:55:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 10:55:00 +07)" (scheduled at 2026-04-15 10:55:00+07:00)
+2026-04-15 10:55:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 10:55:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:00:00 +07)" executed successfully
+2026-04-15 11:00:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:05:00 +07)" (scheduled at 2026-04-15 11:00:00+07:00)
+2026-04-15 11:00:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:00:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:05:00 +07)" executed successfully
+2026-04-15 11:05:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:10:00 +07)" (scheduled at 2026-04-15 11:05:00+07:00)
+2026-04-15 11:05:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:05:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:10:00 +07)" executed successfully
+2026-04-15 11:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:15:00 +07)" (scheduled at 2026-04-15 11:10:00+07:00)
+2026-04-15 11:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:15:00 +07)" executed successfully
+2026-04-15 11:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:20:00 +07)" (scheduled at 2026-04-15 11:15:00+07:00)
+2026-04-15 11:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:20:00 +07)" executed successfully
+2026-04-15 11:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:25:00 +07)" (scheduled at 2026-04-15 11:20:00+07:00)
+2026-04-15 11:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:25:00 +07)" executed successfully
+2026-04-15 11:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:30:00 +07)" (scheduled at 2026-04-15 11:25:00+07:00)
+2026-04-15 11:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:30:00 +07)" executed successfully
+2026-04-15 11:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:35:00 +07)" (scheduled at 2026-04-15 11:30:00+07:00)
+2026-04-15 11:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:35:00 +07)" executed successfully
+2026-04-15 11:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:40:00 +07)" (scheduled at 2026-04-15 11:35:00+07:00)
+2026-04-15 11:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:40:00 +07)" executed successfully
+2026-04-15 11:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:45:00 +07)" (scheduled at 2026-04-15 11:40:00+07:00)
+2026-04-15 11:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:45:00 +07)" executed successfully
+2026-04-15 11:45:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:50:00 +07)" (scheduled at 2026-04-15 11:45:00+07:00)
+2026-04-15 11:45:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:45:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:50:00 +07)" executed successfully
+2026-04-15 11:50:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:55:00 +07)" (scheduled at 2026-04-15 11:50:00+07:00)
+2026-04-15 11:50:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:50:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 11:55:00 +07)" executed successfully
+2026-04-15 11:55:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:00:00 +07)" (scheduled at 2026-04-15 11:55:00+07:00)
+2026-04-15 11:55:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 11:55:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:00:00 +07)" executed successfully
+2026-04-15 12:00:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:05:00 +07)" (scheduled at 2026-04-15 12:00:00+07:00)
+2026-04-15 12:00:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:00:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:05:00 +07)" executed successfully
+2026-04-15 12:05:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:10:00 +07)" (scheduled at 2026-04-15 12:05:00+07:00)
+2026-04-15 12:05:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:05:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:10:00 +07)" executed successfully
+2026-04-15 12:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:15:00 +07)" (scheduled at 2026-04-15 12:10:00+07:00)
+2026-04-15 12:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:15:00 +07)" executed successfully
+2026-04-15 12:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:20:00 +07)" (scheduled at 2026-04-15 12:15:00+07:00)
+2026-04-15 12:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:20:00 +07)" executed successfully
+2026-04-15 12:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:25:00 +07)" (scheduled at 2026-04-15 12:20:00+07:00)
+2026-04-15 12:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:25:00 +07)" executed successfully
+2026-04-15 12:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:30:00 +07)" (scheduled at 2026-04-15 12:25:00+07:00)
+2026-04-15 12:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:30:00 +07)" executed successfully
+2026-04-15 12:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:35:00 +07)" (scheduled at 2026-04-15 12:30:00+07:00)
+2026-04-15 12:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:35:00 +07)" executed successfully
+2026-04-15 12:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:40:00 +07)" (scheduled at 2026-04-15 12:35:00+07:00)
+2026-04-15 12:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:40:00 +07)" executed successfully
+2026-04-15 12:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:45:00 +07)" (scheduled at 2026-04-15 12:40:00+07:00)
+2026-04-15 12:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:45:00 +07)" executed successfully
+2026-04-15 12:45:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:50:00 +07)" (scheduled at 2026-04-15 12:45:00+07:00)
+2026-04-15 12:45:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:45:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:50:00 +07)" executed successfully
+2026-04-15 12:50:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:55:00 +07)" (scheduled at 2026-04-15 12:50:00+07:00)
+2026-04-15 12:50:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:50:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 12:55:00 +07)" executed successfully
+2026-04-15 12:52:32 [INFO] apscheduler.executors.default: Running job "job_crawl_news (trigger: interval[2:00:00], next run at: 2026-04-15 14:52:32 +07)" (scheduled at 2026-04-15 12:52:32.134782+07:00)
+2026-04-15 12:52:32 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 12:53:04 [INFO] pipeline_manager: [JOB CRAWL] 17 bài mới (VI: 0, EN: 17)
+2026-04-15 12:53:04 [INFO] apscheduler.executors.default: Job "job_crawl_news (trigger: interval[2:00:00], next run at: 2026-04-15 14:52:32 +07)" executed successfully
+2026-04-15 12:55:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:00:00 +07)" (scheduled at 2026-04-15 12:55:00+07:00)
+2026-04-15 12:55:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 12:55:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:00:00 +07)" executed successfully
+2026-04-15 13:00:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:05:00 +07)" (scheduled at 2026-04-15 13:00:00+07:00)
+2026-04-15 13:00:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:00:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:05:00 +07)" executed successfully
+2026-04-15 13:05:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:10:00 +07)" (scheduled at 2026-04-15 13:05:00+07:00)
+2026-04-15 13:05:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:05:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:10:00 +07)" executed successfully
+2026-04-15 13:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:15:00 +07)" (scheduled at 2026-04-15 13:10:00+07:00)
+2026-04-15 13:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:15:00 +07)" executed successfully
+2026-04-15 13:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:20:00 +07)" (scheduled at 2026-04-15 13:15:00+07:00)
+2026-04-15 13:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:20:00 +07)" executed successfully
+2026-04-15 13:16:58 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 13:16:58 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 13:16:58 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 13:16:58 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 13:16:58 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 13:16:58 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 13:17:30 [INFO] pipeline_manager: [JOB CRAWL] 4 bài mới (VI: 0, EN: 4)
+2026-04-15 13:17:31 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 16/16 ticker
+2026-04-15 13:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:20:00 +07)" (scheduled at 2026-04-15 13:20:00+07:00)
+2026-04-15 13:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:25:00 +07)" executed successfully
+2026-04-15 13:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:30:00 +07)" (scheduled at 2026-04-15 13:25:00+07:00)
+2026-04-15 13:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:30:00 +07)" executed successfully
+2026-04-15 13:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:35:00 +07)" (scheduled at 2026-04-15 13:30:00+07:00)
+2026-04-15 13:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:35:00 +07)" executed successfully
+2026-04-15 13:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:40:00 +07)" (scheduled at 2026-04-15 13:35:00+07:00)
+2026-04-15 13:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:40:00 +07)" executed successfully
+2026-04-15 13:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:45:00 +07)" (scheduled at 2026-04-15 13:40:00+07:00)
+2026-04-15 13:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:45:00 +07)" executed successfully
+2026-04-15 13:45:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:50:00 +07)" (scheduled at 2026-04-15 13:45:00+07:00)
+2026-04-15 13:45:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-15 13:45:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-15 13:50:00 +07)" executed successfully
+2026-04-15 21:38:54 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-15 21:38:54 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-15 21:38:54 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_evaluate_rlhf" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-15 21:38:54 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-15 21:38:54 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-15 21:38:54 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-15 21:40:45 [INFO] pipeline_manager: [JOB CRAWL] 17 bài mới (VI: 0, EN: 17)
+2026-04-15 21:40:46 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 18/18 ticker
+2026-04-16 22:22:13 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-16 22:22:13 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-16 22:22:13 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_evaluate_rlhf" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-16 22:22:13 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-16 22:22:13 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-16 22:22:13 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-16 22:22:46 [INFO] pipeline_manager: [JOB CRAWL] 20 bài mới (VI: 0, EN: 20)
+2026-04-16 22:22:47 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 18/18 ticker
+2026-04-17 10:11:41 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-17 10:11:41 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 10:11:41 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_evaluate_rlhf" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-17 10:11:41 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-17 10:11:41 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-17 10:11:41 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-17 10:12:15 [INFO] pipeline_manager: [JOB CRAWL] 20 bài mới (VI: 0, EN: 20)
+2026-04-17 10:12:16 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 18/18 ticker
+2026-04-17 10:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:15:00 +07)" (scheduled at 2026-04-17 10:15:00+07:00)
+2026-04-17 10:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:20:00 +07)" executed successfully
+2026-04-17 10:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:25:00 +07)" (scheduled at 2026-04-17 10:20:00+07:00)
+2026-04-17 10:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:25:00 +07)" executed successfully
+2026-04-17 10:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:30:00 +07)" (scheduled at 2026-04-17 10:25:00+07:00)
+2026-04-17 10:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:30:00 +07)" executed successfully
+2026-04-17 10:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:35:00 +07)" (scheduled at 2026-04-17 10:30:00+07:00)
+2026-04-17 10:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:35:00 +07)" executed successfully
+2026-04-17 10:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:40:00 +07)" (scheduled at 2026-04-17 10:35:00+07:00)
+2026-04-17 10:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:40:00 +07)" executed successfully
+2026-04-17 10:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:45:00 +07)" (scheduled at 2026-04-17 10:40:00+07:00)
+2026-04-17 10:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:45:00 +07)" executed successfully
+2026-04-17 10:45:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:50:00 +07)" (scheduled at 2026-04-17 10:45:00+07:00)
+2026-04-17 10:45:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:45:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:50:00 +07)" executed successfully
+2026-04-17 10:50:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:55:00 +07)" (scheduled at 2026-04-17 10:50:00+07:00)
+2026-04-17 10:50:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:50:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 10:55:00 +07)" executed successfully
+2026-04-17 10:55:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:00:00 +07)" (scheduled at 2026-04-17 10:55:00+07:00)
+2026-04-17 10:55:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 10:55:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:00:00 +07)" executed successfully
+2026-04-17 11:00:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:05:00 +07)" (scheduled at 2026-04-17 11:00:00+07:00)
+2026-04-17 11:00:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:00:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:05:00 +07)" executed successfully
+2026-04-17 11:05:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:10:00 +07)" (scheduled at 2026-04-17 11:05:00+07:00)
+2026-04-17 11:05:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:05:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:10:00 +07)" executed successfully
+2026-04-17 11:10:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:15:00 +07)" (scheduled at 2026-04-17 11:10:00+07:00)
+2026-04-17 11:10:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:10:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:15:00 +07)" executed successfully
+2026-04-17 11:15:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:20:00 +07)" (scheduled at 2026-04-17 11:15:00+07:00)
+2026-04-17 11:15:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:15:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:20:00 +07)" executed successfully
+2026-04-17 11:20:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:25:00 +07)" (scheduled at 2026-04-17 11:20:00+07:00)
+2026-04-17 11:20:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:20:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:25:00 +07)" executed successfully
+2026-04-17 11:25:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:30:00 +07)" (scheduled at 2026-04-17 11:25:00+07:00)
+2026-04-17 11:25:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:25:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:30:00 +07)" executed successfully
+2026-04-17 11:30:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:35:00 +07)" (scheduled at 2026-04-17 11:30:00+07:00)
+2026-04-17 11:30:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:30:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:35:00 +07)" executed successfully
+2026-04-17 11:35:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:40:00 +07)" (scheduled at 2026-04-17 11:35:00+07:00)
+2026-04-17 11:35:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 11:35:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 11:40:00 +07)" executed successfully
+2026-04-17 12:38:08 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-17 12:38:08 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:38:08 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_evaluate_rlhf" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-17 12:38:08 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-17 12:38:08 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-17 12:38:08 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-17 12:38:44 [INFO] pipeline_manager: [JOB CRAWL] 20 bài mới (VI: 0, EN: 20)
+2026-04-17 12:38:45 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 18/18 ticker
+2026-04-17 12:40:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:40:00 +07)" (scheduled at 2026-04-17 12:40:00+07:00)
+2026-04-17 12:40:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 12:40:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:45:00 +07)" executed successfully
+2026-04-17 12:44:46 [INFO] pipeline_manager: Khởi động nền tảng Điều phối (Jobs Manager)...
+2026-04-17 12:44:46 [INFO] pipeline_manager: - Crawl tin: mỗi 2 giờ | Sentiment: 00:00 | Training: 02:00 | RLHF: 01:00
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2026-04-17 12:44:46 [INFO] pipeline_manager: [✅] Live trading jobs đã được đăng ký.
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_crawl_news" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_run_sentiment" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_evaluate_rlhf" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_train_kronos" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_build_analyzed_data" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_live_trading" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Added job "job_scan_stops" to job store "default"
+2026-04-17 12:44:46 [INFO] apscheduler.scheduler: Scheduler started
+2026-04-17 12:44:46 [INFO] pipeline_manager: [✅] Pipeline Manager Scheduler đã khởi động thành công.
+2026-04-17 12:44:46 [INFO] pipeline_manager: [JOB CRAWL] Bắt đầu thu thập tin tức (mỗi 2 giờ)...
+2026-04-17 12:45:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:45:00 +07)" (scheduled at 2026-04-17 12:45:00+07:00)
+2026-04-17 12:45:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 12:45:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:50:00 +07)" executed successfully
+2026-04-17 12:45:30 [INFO] pipeline_manager: [JOB CRAWL] 2 bài mới (VI: 0, EN: 2)
+2026-04-17 12:45:31 [INFO] pipeline_manager: [JOB ANALYZED] Hoàn tất: 18/18 ticker
+2026-04-17 12:50:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:55:00 +07)" (scheduled at 2026-04-17 12:50:00+07:00)
+2026-04-17 12:50:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 12:50:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 12:55:00 +07)" executed successfully
+2026-04-17 12:55:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 13:00:00 +07)" (scheduled at 2026-04-17 12:55:00+07:00)
+2026-04-17 12:55:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 12:55:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 13:00:00 +07)" executed successfully
+2026-04-17 13:00:00 [INFO] apscheduler.executors.default: Running job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 13:05:00 +07)" (scheduled at 2026-04-17 13:00:00+07:00)
+2026-04-17 13:00:00 [WARNING] live_broker: [Paper] Không có dữ liệu giá cho VNM_TEST
+2026-04-17 13:00:00 [INFO] apscheduler.executors.default: Job "job_scan_stops (trigger: cron[day_of_week='mon-fri', hour='9-14', minute='*/5'], next run at: 2026-04-17 13:05:00 +07)" executed successfully

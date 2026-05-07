@@ -1,0 +1,58 @@
+
+████████████████████████████████████████████████████████████████████████████████
+  PHASE 3 VALIDATION TEST RUNNER
+  Backtest: Kronos-Only vs Multi-Agent with Enhanced Agents
+████████████████████████████████████████████████████████████████████████████████
+
+================================================================================
+  RUNNING BACKTEST COMPARISON
+================================================================================
+
+Starting: python tests/backtest_comparison.py
+(This may take 5-30 minutes depending on data size...)
+
+
+██████████████████████████████████████████████████████████████████████
+  PHASE 3 BACKTEST COMPARISON
+  Kronos-Only vs Multi-Agent Coordinator Strategy
+██████████████████████████████████████████████████████████████████████
+
+[Step 1/3] Running Kronos-only backtest...
+
+======================================================================
+  BACKTEST 1: Kronos-Only Strategy (Base Model)
+======================================================================
+Error running basic backtest: No module named 'tests.backtest_basic'
+
+[Step 2/3] Running multi-agent backtest...
+
+======================================================================
+  BACKTEST 2: Multi-Agent Strategy (With Coordinator)
+======================================================================
+Error running multi-agent backtest: No module named 'tests.backtest_multi_agent'
+
+[Step 3/3] Creating comparison report...
+
+======================================================================
+  COMPARISON RESULTS
+======================================================================
+❌ Could not generate comparison (missing reports)
+
+❌ Comparison failed - check errors above
+
+STDERR: Traceback (most recent call last):
+  File "/Users/gooleseswsq1gmail.com/Documents/stock-ai/tests/backtest_comparison.py", line 31, in run_backtest_basic
+    from tests.backtest_basic import run_backtest, BacktestConfig
+ModuleNotFoundError: No module named 'tests.backtest_basic'
+Traceback (most recent call last):
+  File "/Users/gooleseswsq1gmail.com/Documents/stock-ai/tests/backtest_comparison.py", line 49, in run_backtest_multi_agent
+    from tests.backtest_multi_agent import run_multi_agent_backtest, BacktestConfig
+ModuleNotFoundError: No module named 'tests.backtest_multi_agent'
+
+
+================================================================================
+  ANALYZING RESULTS
+================================================================================
+❌ Comparison report not found: /Users/gooleseswsq1gmail.com/Documents/stock-ai/data/reports/json/backtest_comparison.json
+
+❌ Could not analyze results

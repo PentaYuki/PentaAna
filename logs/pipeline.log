@@ -1,0 +1,29 @@
+2026-04-12 17:20:06,903 INFO === Bắt đầu pipeline hàng ngày ===
+2026-04-12 17:20:29,239 ERROR API request failed: HTTPSConnectionPool(host='trading.vietcap.com.vn', port=443): Read timed out. (read timeout=30)
+2026-04-12 17:20:32,668 INFO Not a stock. Company and finance data unavailable.
+2026-04-12 17:20:32,930 INFO ✓ Hoàn thành pipeline: 7 mã
+2026-04-14 12:32:11,115 INFO === Bắt đầu pipeline hàng ngày ===
+2026-04-14 12:32:20,151 INFO Not a stock. Company and finance data unavailable.
+2026-04-14 12:32:20,381 INFO ✓ Hoàn thành pipeline: 8 mã
+2026-04-15 17:41:41,083 INFO === Bắt đầu pipeline hàng ngày ===
+2026-04-15 17:41:43,905 INFO Not a stock. Company and finance data unavailable.
+2026-04-15 17:41:44,635 INFO ✓ Hoàn thành pipeline: 0 mã
+2026-04-15 17:42:43,131 INFO === Bắt đầu pipeline hàng ngày ===
+2026-04-15 17:42:44,011 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:44,011 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:44,560 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:44,560 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:44,843 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:44,844 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,089 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,089 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,382 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,382 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,591 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,591 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,839 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:45,839 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:46,067 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:46,067 INFO Loaded 162 built-in KBS field mappings
+2026-04-15 17:42:46,267 INFO Not a stock. Company and finance data unavailable.
+2026-04-15 17:42:46,571 INFO ✓ Hoàn thành pipeline: 8 mã

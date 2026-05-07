@@ -1,0 +1,15 @@
+2026-04-14 18:34:50 | INFO     | tests.test_agents_unit:613 — Test log message từ unit test
+2026-04-14 18:34:50 | WARNING  | tests.test_agents_unit:614 — Test warning
+2026-04-14 18:34:50 | WARNING  | logger_setup:224 — [ALERT] Test message
+2026-04-14 18:36:53 | INFO     | tests.test_agents_unit:636 — Test log message từ unit test
+2026-04-14 18:36:53 | WARNING  | tests.test_agents_unit:637 — Test warning
+2026-04-14 18:36:53 | WARNING  | logger_setup:224 — [ALERT] Test message
+2026-04-14 18:37:26 | INFO     | tests.test_agents_unit:632 — Test log message từ unit test
+2026-04-14 18:37:26 | WARNING  | tests.test_agents_unit:633 — Test warning
+2026-04-14 18:37:26 | WARNING  | logger_setup:224 — [ALERT] Test message
+2026-04-14 18:38:07 | INFO     | tests.test_agents_unit:639 — Test log message từ unit test
+2026-04-14 18:38:07 | WARNING  | tests.test_agents_unit:640 — Test warning
+2026-04-14 18:38:07 | WARNING  | logger_setup:224 — [ALERT] Test message
+2026-04-14 21:38:08 | INFO     | __main__:639 — Test log message từ unit test
+2026-04-14 21:38:08 | WARNING  | __main__:640 — Test warning
+2026-04-14 21:38:08 | WARNING  | logger_setup:224 — [ALERT] Test message

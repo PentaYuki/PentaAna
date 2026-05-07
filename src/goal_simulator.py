@@ -22,6 +22,14 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 def _load_price_df(ticker: str) -> pd.DataFrame:
     pq_path = os.path.join(DATA_DIR, "raw", "parquet", f"{ticker}_history.parquet")
     csv_path = os.path.join(DATA_DIR, "raw", "csv", f"{ticker}_history.csv")
+    
+    if not os.path.exists(pq_path) and not os.path.exists(csv_path):
+        try:
+            from data_collector import get_stock_history
+            get_stock_history(ticker, years=5)
+        except Exception as e:
+            print(f"Warning: Could not fetch data for {ticker}: {e}")
+
     if os.path.exists(pq_path):
         df = pd.read_parquet(pq_path, engine="pyarrow")
     elif os.path.exists(csv_path):
@@ -102,12 +110,25 @@ def simulate_goal_oriented(
     df = _load_price_df(ticker)
     df = calculate_indicators(df)
     
-    # Lọc range thời gian
     mask = (df["time"] >= start_date) & (df["time"] <= end_date)
-    df = df[mask].reset_index(drop=True)
+    df_filtered = df[mask].reset_index(drop=True)
     
-    if len(df) < 20:
+    if len(df_filtered) < 20:
+        # In case data was too old/incomplete, try one refresh
+        try:
+            from data_collector import get_stock_history
+            get_stock_history(ticker, years=5)
+            df = _load_price_df(ticker)
+            df = calculate_indicators(df)
+            mask = (df["time"] >= start_date) & (df["time"] <= end_date)
+            df_filtered = df[mask].reset_index(drop=True)
+        except Exception:
+            pass
+
+    if len(df_filtered) < 20:
         raise ValueError("Không đủ dữ liệu cho khoảng thời gian này.")
+        
+    df = df_filtered
         
     cash = initial_capital
     shares = 0
