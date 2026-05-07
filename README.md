@@ -1,7 +1,8 @@
 <img width="565" height="271" alt="Ảnh màn hình 2026-05-07 lúc 15 28 38" src="https://github.com/user-attachments/assets/adee1f2d-adde-4b62-bd5f-cbe675ef868b" />
 <img width="472" height="220" alt="Ảnh màn hình 2026-05-07 lúc 15 36 27" src="https://github.com/user-attachments/assets/92bd2c4b-e0ae-408f-ae80-8b30ceb8aeae" />
 <img width="525" height="341" alt="Ảnh màn hình 2026-05-07 lúc 15 50 10" src="https://github.com/user-attachments/assets/c44cc5fb-9067-4f7f-9e95-d06e83de86d2" />
-Đây là những dữ liệu mô phỏng hệ thống
+Đây là những dữ liệu mô phỏng hệ thống 
+Đây là công cụ mô phỏng chiến lược trên dữ liệu lịch sử. Không có tiền thật nào được sử dụng. Kết quả trong quá khứ không đảm bảo lợi nhuận trong tương lai."
 # 🚀 PentaAna: Multi-Agent Stock Intelligence & Autonomous Trading V2
 
 **PentaAna** (formerly KRONOS) is a state-of-the-art AI ecosystem designed to dominate the Vietnamese stock market (VN-INDEX). It integrates **Generative AI forecasting**, **DRL-based strategy training**, and **Live Broker connectivity** into a single, cohesive MLOps-driven pipeline.
